@@ -1,65 +1,93 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Mike Ebbing LL.M. – Rechtsanwalt Berlin',
+  description:
+    'Rechtsanwalt Mike Ebbing LL.M. in Berlin-Zehlendorf. Buschgrabenweg 13, 14165 Berlin. Telefon: +49 (0)30 3810 9824.',
+}
+
+const contactRows = [
+  { label: 'Telefon', value: '+49 (0)30 3810 9824', href: 'tel:+493038109824' },
+  { label: 'Mobil',   value: '+49 (0)177 5 90 80 70', href: 'tel:+491775908070' },
+  { label: 'Fax',     value: '+49 (0)30 3730 0645',   href: null },
+  { label: 'E-Mail',  value: 'ebbing@ebbing-law.de',   href: 'mailto:ebbing@ebbing-law.de' },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex-1 flex items-center justify-center p-6 md:p-12 py-14 md:py-20">
+      <article
+        className="w-full max-w-3xl bg-white rounded-2xl overflow-hidden"
+        style={{ boxShadow: '0 8px 48px rgba(44, 72, 92, 0.13), 0 1px 4px rgba(44, 72, 92, 0.06)' }}
+      >
+        {/* ── Card header ── */}
+        <header className="bg-[#5a8ba8] px-10 py-10 text-center">
+          <h1
+            className="font-display text-white font-normal leading-tight tracking-[0.18em]"
+            style={{ fontSize: 'clamp(1.5rem, 3.8vw, 2.25rem)', fontVariant: 'small-caps' }}
+          >
+            Mike Ebbing LL.M.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="font-body text-white/70 text-[0.7rem] tracking-[0.38em] uppercase mt-3">
+            Rechtsanwalt
           </p>
+        </header>
+
+        {/* ── Card body ── */}
+        <div className="flex flex-col md:flex-row items-start gap-10 px-10 md:px-14 py-12 md:py-14">
+
+          {/* Left column – contact */}
+          <div className="flex-1 space-y-9">
+
+            {/* Address */}
+            <div>
+              <p className="font-body text-[#5a8ba8] text-[0.62rem] tracking-[0.28em] uppercase font-medium mb-3">
+                Kanzlei
+              </p>
+              <address className="not-italic font-body text-gray-600 text-sm leading-7">
+                Buschgrabenweg 13<br />
+                14165 Berlin
+              </address>
+            </div>
+
+            {/* Hairline divider */}
+            <div className="w-8 border-t border-[#5a8ba8]/25" />
+
+            {/* Contact details */}
+            <div className="space-y-3.5">
+              {contactRows.map(({ label, value, href }) => (
+                <div key={label} className="flex items-baseline gap-5">
+                  <span className="font-body text-[#5a8ba8] text-[0.62rem] tracking-[0.22em] uppercase font-medium w-14 shrink-0">
+                    {label}
+                  </span>
+                  {href ? (
+                    <a
+                      href={href}
+                      className="font-body text-gray-500 text-sm hover:text-[#5a8ba8] transition-colors duration-200"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <span className="font-body text-gray-500 text-sm">{value}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right column – portrait */}
+          <div className="w-full md:w-44 lg:w-48 shrink-0 self-center md:self-start">
+            <div className="aspect-[3/4] w-40 mx-auto md:w-full rounded-xl overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/portrait-placeholder.svg"
+                alt="Portrait von Rechtsanwalt Mike Ebbing"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </article>
     </div>
-  );
+  )
 }
