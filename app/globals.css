@@ -1,3 +1,16 @@
+:root {
+  --blue: rgb(102, 135, 159);
+  --blue-15: rgba(102, 135, 159, 0.15);
+  --blue-20: rgba(102, 135, 159, 0.2);
+  --blue-75: rgba(102, 135, 159, 0.75);
+
+  --white: #ffffff;
+  --background: #f7f7f7;
+  --text: #333333;
+  --muted: #666666;
+  --border: #e8e8e8;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,8 +19,8 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: #f7f7f7;
-  color: #333;
+  background: var(--background);
+  color: var(--text);
 }
 
 body {
@@ -17,7 +30,6 @@ body {
 .page {
   min-height: 100vh;
   padding: 60px 24px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,11 +41,9 @@ body {
 .card {
   width: 1040px;
   max-width: 100%;
-
-  background: white;
+  background: var(--white);
   border-radius: 12px;
   overflow: hidden;
-
   box-shadow:
     0 20px 45px rgba(0, 0, 0, 0.18),
     0 3px 10px rgba(0, 0, 0, 0.08);
@@ -44,15 +54,13 @@ body {
 .content {
   height: 430px;
   padding: 48px 78px 30px;
-
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
 }
 
 .left h1 {
   margin: 0;
-
-  color: #4f7fa1;
+  color: var(--blue);
   font-size: 38px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -61,8 +69,7 @@ body {
 
 .left h2 {
   margin: 6px 0 0;
-
-  color: #666;
+  color: var(--muted);
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 3px;
@@ -73,8 +80,7 @@ body {
   width: 58px;
   height: 1px;
   margin: 34px 0 42px;
-
-  background: #7ea5c0;
+  background: var(--blue-75);
 }
 
 /* Contact */
@@ -83,7 +89,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 17px;
-
   font-size: 16px;
 }
 
@@ -100,7 +105,7 @@ body {
 
 .icon,
 .row strong {
-  color: #4f7fa1;
+  color: var(--blue);
 }
 
 .icon {
@@ -117,7 +122,7 @@ body {
 /* Monogram */
 
 .divider {
-  background: #e8e8e8;
+  background: var(--border);
 }
 
 .right {
@@ -127,8 +132,7 @@ body {
 }
 
 .monogram {
-  color: rgba(79, 127, 161, 0.14);
-
+  color: var(--blue-15);
   font-family: Georgia, serif;
   font-size: 150px;
   letter-spacing: -24px;
@@ -137,13 +141,12 @@ body {
 /* Footer */
 
 .footer {
-  background: #5f8eac;
-  color: white;
+  background: var(--blue);
+  color: var(--white);
 }
 
 .footerInner {
   padding: 30px 52px 32px;
-
   text-align: center;
   letter-spacing: 1.5px;
   font-variant: small-caps;
@@ -155,14 +158,12 @@ body {
 
 .footerAddress {
   margin-bottom: 13px !important;
-
   font-size: 16px;
   font-weight: 600;
 }
 
 .footerContact {
   margin-bottom: 22px !important;
-
   font-size: 15px;
 }
 
@@ -174,13 +175,11 @@ body {
 
 .legal {
   margin-top: 44px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 24px;
-
-  color: #5f8eac;
+  color: var(--blue);
   font-size: 15px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -206,39 +205,103 @@ body {
 .legalPage {
   min-height: 100vh;
   padding: 60px 24px;
-
   display: flex;
   justify-content: center;
+  background: var(--background);
+}
 
-  background: #f7f7f7;
+.legalPageWrap {
+  width: 900px;
+  max-width: 100%;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 36px;
+  color: var(--blue);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  opacity: 0.75;
 }
 
 .legalCard {
-  width: 900px;
-  max-width: 100%;
-  padding: 60px;
-
-  background: white;
+  width: 100%;
+  padding: 56px 60px;
+  background: var(--white);
   border-radius: 12px;
-
   box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.18),
-    0 3px 10px rgba(0, 0, 0, 0.08);
+    0 20px 45px rgba(0, 0, 0, 0.14),
+    0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
 .legalCard h1 {
-  margin-bottom: 40px;
-
-  color: #4f7fa1;
+  margin: 0 0 42px;
+  color: var(--blue);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-variant: small-caps;
 }
 
-.legalCard p,
-.legalCard li {
-  line-height: 1.7;
+.legalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
 }
 
-.legalCard ul {
+.legalContent section {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--blue-20);
+}
+
+.legalContent section:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.legalContent h2 {
+  margin: 0 0 12px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  font-variant: small-caps;
+}
+
+.legalContent p {
+  margin: 0;
+}
+
+.legalContent p + p {
+  margin-top: 16px;
+}
+
+.legalContent ul {
+  margin: 14px 0 0;
   padding-left: 20px;
+}
+
+.legalContent li {
+  margin-bottom: 4px;
+}
+
+.legalContent a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.legalContent a:hover {
+  text-decoration: underline;
 }
 
 /* Responsive */
@@ -251,7 +314,6 @@ body {
   .content {
     height: auto;
     padding: 36px 32px;
-
     grid-template-columns: 1fr;
   }
 
@@ -272,13 +334,29 @@ body {
     padding: 24px 20px;
   }
 
+  .footerContact {
+    margin-bottom: 28px;
+  }
+
   .legal {
     margin-top: 32px;
     gap: 16px;
     font-size: 13px;
   }
 
+  .legalPage {
+    padding: 32px 16px;
+  }
+
   .legalCard {
-    padding: 32px 24px;
+    padding: 36px 28px;
+  }
+
+  .legalCard h1 {
+    font-size: 28px;
+  }
+
+  .legalContent {
+    font-size: 14px;
   }
 }
