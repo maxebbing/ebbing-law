@@ -1,65 +1,108 @@
-import Image from "next/image";
+import ContactRow from './_components/ContactRow'
+import PortraitPlaceholder from './_components/PortraitPlaceholder'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        padding: '1.75rem',
+      }}
+    >
+      {/* Card */}
+      <div
+        style={{
+          flex: 1,
+          display: 'flex',
+          backgroundColor: '#ffffff',
+          boxShadow:
+            '0 1px 3px rgba(28,53,73,0.05), 0 8px 32px rgba(28,53,73,0.10), 0 40px 80px rgba(28,53,73,0.08)',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Left: contact information */}
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: 'clamp(2.5rem, 5vw, 5rem)',
+          }}
+        >
+          {/* Name block */}
+          <div style={{ marginBottom: '2.25rem' }}>
+            <h1
+              style={{
+                margin: 0,
+                fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)',
+                fontWeight: 500,
+                color: '#1c3549',
+                letterSpacing: '0.04em',
+                fontVariantCaps: 'small-caps',
+                lineHeight: 1.05,
+                marginBottom: '0.65rem',
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Mike Ebbing ll.m.
+            </h1>
+            <p
+              style={{
+                margin: 0,
+                fontSize: '0.62rem',
+                letterSpacing: '0.28em',
+                textTransform: 'uppercase',
+                color: '#5b87a3',
+                fontWeight: 400,
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Rechtsanwalt
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div
+            style={{
+              height: '1px',
+              backgroundColor: 'rgba(28,53,73,0.14)',
+              marginBottom: '2.25rem',
+            }}
+          />
+
+          {/* Contact list */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            <ContactRow icon="location">
+              Buschgrabenweg 13 · 14165 Berlin
+            </ContactRow>
+            <ContactRow icon="phone" label="Telefon">
+              +49&nbsp;(0)30&nbsp;3810&nbsp;9824
+            </ContactRow>
+            <ContactRow icon="mobile" label="Mobil">
+              +49&nbsp;(0)177&nbsp;5&nbsp;90&nbsp;80&nbsp;70
+            </ContactRow>
+            <ContactRow icon="fax" label="Fax">
+              +49&nbsp;(0)30&nbsp;3730&nbsp;0645
+            </ContactRow>
+            <ContactRow icon="email" label="E-Mail">
+              <a
+                href="mailto:ebbing@ebbing-law.de"
+                className="hover:underline underline-offset-2"
+              >
+                ebbing@ebbing-law.de
+              </a>
+            </ContactRow>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Right: portrait */}
+        <div
+          className="hidden md:flex"
+          style={{ width: '43%', flexShrink: 0 }}
+        >
+          <PortraitPlaceholder />
         </div>
-      </main>
+      </div>
     </div>
-  );
+  )
 }
