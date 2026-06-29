@@ -110,6 +110,20 @@ export default function ImpressumPage() {
                 der Inhalte kann jedoch keine Gewähr übernommen werden.
               </p>
             </section>
+
+            <section>
+              <h2>Webdesign und technische Umsetzung</h2>
+              <p>
+                Website erstellt von{" "}
+                <a
+                  href="https://maxebbing.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Max Ebbing
+                </a>
+              </p>
+            </section>
           </div>
         </article>
       </div>
